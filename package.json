@@ -2,15 +2,16 @@
   "name": "desafiobe6",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "modules": "^0.4.0"
+    "modules": "^0.4.0",
+    "socket.io": "^4.5.4"
   }
 }
