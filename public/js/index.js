@@ -1,18 +1,18 @@
 const socket = io()
 
-function mostrarMensaje(mensaje) {
-    const mensajeParaMostrar = mensaje.map(({fecha, autor, texto}) => {
+function mostrarMensajes(mensajes) {
+    const mensajesParaMostrar = mensajes.map(({fecha, autor, texto}) => {
         return "<li>${fecha} - ${autor}: ${texto}</li>"
     })
 
-    const mensajeHtml = `<ul>${mensajeParaMostrar.join("\n")}</ul>`
+    const mensajesHtml = `<ul>${mensajesParaMostrar.join("\n")}</ul>`
 
-    const listaMensaje = document.getElementById(`listaMensaje`)
-    listaMensaje.innerHTML = mensajeHtml
+    const listaMensajes = document.getElementById(`listaMensajes`)
+    listaMensajes.innerHTML = mensajesHtml
 }
 
-socket.on(`mensajesActualizados`, menaje => {
-    mostrarMensaje(mensaje)
+socket.on(`mensajesActualizados`, menajes => {
+    mostrarMensajes(mensajes)
 })
 
 const sendButton = document.getElementById(`sendButton`)

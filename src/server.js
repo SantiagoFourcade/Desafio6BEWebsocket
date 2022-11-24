@@ -8,15 +8,15 @@ const io = new IOServer(httpServer)
 
 app.use(express.static(`public`))
 
-const mensaje = []
+const mensajes = []
 
 io.on(`connection`, (socket) => {
-    socket.emit(`mensajeActualizados`, mensaje)
+    socket.emit(`mensajesActualizados`, mensajes)
 
     socket.on(`nuevoMensaje` , mensaje => {
         mensaje.fecha = new Date().toLocaleString()
-        mensaje.push(mensaje)
-        io.sockets.emit(`mensajeActualizados`, mensaje)
+        mensajes.push(mensaje)
+        io.sockets.emit(`mensajesActualizados`, mensajes)
     })
 })
 
